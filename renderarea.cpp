@@ -1,4 +1,5 @@
 #include "renderarea.h"
+#include <QPainter>
 
 RenderArea::RenderArea(QWidget *parent) : QWidget(parent)
 {
@@ -47,17 +48,6 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
     QPainter painter(this);
     painter.setPen(pen);
     painter.setBrush(brush);
-    if (antialiased)
-        painter.setRenderHint(QPainter::Antialiasing, true);
-
-    for (int x = 0; x < width(); x += 100) {
-        for (int y = 0; y < height(); y += 100) {
-            painter.save();
-            painter.translate(x, y);
-            painter.drawRect(rect);
-            painter.restore();
-        }
-    }
     painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(palette().dark().color());
     painter.setBrush(Qt::NoBrush);

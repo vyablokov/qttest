@@ -2,6 +2,10 @@
 #define RENDERAREA_H
 
 #include <QMainWindow>
+#include <QBrush>
+#include <QPen>
+#include <QPixmap>
+#include <QWidget>
 
 class RenderArea : public QWidget
 {
